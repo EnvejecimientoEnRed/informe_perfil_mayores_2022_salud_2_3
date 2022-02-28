@@ -1,0 +1,136 @@
+Sexo;Edad;Masa corporal adultos;Total
+Ambos sexos;TOTAL;TOTAL;100
+Ambos sexos;TOTAL;Peso insuficiente (IMC<18,5 kg/m2);2.08
+Ambos sexos;TOTAL;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);44.28
+Ambos sexos;TOTAL;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);37.63
+Ambos sexos;TOTAL;Obesidad (IMC>=30 kg/m2);16.01
+Ambos sexos;De 18 a 24 años;TOTAL;100
+Ambos sexos;De 18 a 24 años;Peso insuficiente (IMC<18,5 kg/m2);5.93
+Ambos sexos;De 18 a 24 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);69.17
+Ambos sexos;De 18 a 24 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);20.3
+Ambos sexos;De 18 a 24 años;Obesidad (IMC>=30 kg/m2);4.61
+Ambos sexos;De 25 a 34 años;TOTAL;100
+Ambos sexos;De 25 a 34 años;Peso insuficiente (IMC<18,5 kg/m2);3.78
+Ambos sexos;De 25 a 34 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);58.55
+Ambos sexos;De 25 a 34 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);27.81
+Ambos sexos;De 25 a 34 años;Obesidad (IMC>=30 kg/m2);9.86
+Ambos sexos;De 35 a 44 años;TOTAL;100
+Ambos sexos;De 35 a 44 años;Peso insuficiente (IMC<18,5 kg/m2);1.86
+Ambos sexos;De 35 a 44 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);48.46
+Ambos sexos;De 35 a 44 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);35.21
+Ambos sexos;De 35 a 44 años;Obesidad (IMC>=30 kg/m2);14.47
+Ambos sexos;De 45 a 54 años;TOTAL;100
+Ambos sexos;De 45 a 54 años;Peso insuficiente (IMC<18,5 kg/m2);0.86
+Ambos sexos;De 45 a 54 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);41.88
+Ambos sexos;De 45 a 54 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);40.15
+Ambos sexos;De 45 a 54 años;Obesidad (IMC>=30 kg/m2);17.1
+Ambos sexos;De 55 a 64 años;TOTAL;100
+Ambos sexos;De 55 a 64 años;Peso insuficiente (IMC<18,5 kg/m2);1.54
+Ambos sexos;De 55 a 64 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);34.29
+Ambos sexos;De 55 a 64 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);43.3
+Ambos sexos;De 55 a 64 años;Obesidad (IMC>=30 kg/m2);20.88
+Ambos sexos;De 65 a 74 años;TOTAL;100
+Ambos sexos;De 65 a 74 años;Peso insuficiente (IMC<18,5 kg/m2);0.75
+Ambos sexos;De 65 a 74 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);30.89
+Ambos sexos;De 65 a 74 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);46.22
+Ambos sexos;De 65 a 74 años;Obesidad (IMC>=30 kg/m2);22.13
+Ambos sexos;De 75 a 84 años;TOTAL;100
+Ambos sexos;De 75 a 84 años;Peso insuficiente (IMC<18,5 kg/m2);1.17
+Ambos sexos;De 75 a 84 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);30.1
+Ambos sexos;De 75 a 84 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);48.12
+Ambos sexos;De 75 a 84 años;Obesidad (IMC>=30 kg/m2);20.61
+Ambos sexos;De 85 y más años;TOTAL;100
+Ambos sexos;De 85 y más años;Peso insuficiente (IMC<18,5 kg/m2);3.09
+Ambos sexos;De 85 y más años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);38.92
+Ambos sexos;De 85 y más años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);40.42
+Ambos sexos;De 85 y más años;Obesidad (IMC>=30 kg/m2);17.58
+Hombres;TOTAL;TOTAL;100
+Hombres;TOTAL;Peso insuficiente (IMC<18,5 kg/m2);0.84
+Hombres;TOTAL;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);37.76
+Hombres;TOTAL;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);44.9
+Hombres;TOTAL;Obesidad (IMC>=30 kg/m2);16.5
+Hombres;De 18 a 24 años;TOTAL;100
+Hombres;De 18 a 24 años;Peso insuficiente (IMC<18,5 kg/m2);3.26
+Hombres;De 18 a 24 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);68.85
+Hombres;De 18 a 24 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);23.32
+Hombres;De 18 a 24 años;Obesidad (IMC>=30 kg/m2);4.57
+Hombres;De 25 a 34 años;TOTAL;100
+Hombres;De 25 a 34 años;Peso insuficiente (IMC<18,5 kg/m2);1.22
+Hombres;De 25 a 34 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);53.8
+Hombres;De 25 a 34 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);35.51
+Hombres;De 25 a 34 años;Obesidad (IMC>=30 kg/m2);9.47
+Hombres;De 35 a 44 años;TOTAL;100
+Hombres;De 35 a 44 años;Peso insuficiente (IMC<18,5 kg/m2);0.38
+Hombres;De 35 a 44 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);39.12
+Hombres;De 35 a 44 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);44.7
+Hombres;De 35 a 44 años;Obesidad (IMC>=30 kg/m2);15.8
+Hombres;De 45 a 54 años;TOTAL;100
+Hombres;De 45 a 54 años;Peso insuficiente (IMC<18,5 kg/m2);0.16
+Hombres;De 45 a 54 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);31.65
+Hombres;De 45 a 54 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);49.3
+Hombres;De 45 a 54 años;Obesidad (IMC>=30 kg/m2);18.89
+Hombres;De 55 a 64 años;TOTAL;100
+Hombres;De 55 a 64 años;Peso insuficiente (IMC<18,5 kg/m2);0.62
+Hombres;De 55 a 64 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);26.16
+Hombres;De 55 a 64 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);49.99
+Hombres;De 55 a 64 años;Obesidad (IMC>=30 kg/m2);23.22
+Hombres;De 65 a 74 años;TOTAL;100
+Hombres;De 65 a 74 años;Peso insuficiente (IMC<18,5 kg/m2);0.49
+Hombres;De 65 a 74 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);25.14
+Hombres;De 65 a 74 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);51.93
+Hombres;De 65 a 74 años;Obesidad (IMC>=30 kg/m2);22.44
+Hombres;De 75 a 84 años;TOTAL;100
+Hombres;De 75 a 84 años;Peso insuficiente (IMC<18,5 kg/m2);0.7
+Hombres;De 75 a 84 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);26.38
+Hombres;De 75 a 84 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);55.46
+Hombres;De 75 a 84 años;Obesidad (IMC>=30 kg/m2);17.46
+Hombres;De 85 y más años;TOTAL;100
+Hombres;De 85 y más años;Peso insuficiente (IMC<18,5 kg/m2);2.66
+Hombres;De 85 y más años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);36.81
+Hombres;De 85 y más años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);47.81
+Hombres;De 85 y más años;Obesidad (IMC>=30 kg/m2);12.72
+Mujeres;TOTAL;TOTAL;100
+Mujeres;TOTAL;Peso insuficiente (IMC<18,5 kg/m2);3.28
+Mujeres;TOTAL;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);50.63
+Mujeres;TOTAL;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);30.56
+Mujeres;TOTAL;Obesidad (IMC>=30 kg/m2);15.54
+Mujeres;De 18 a 24 años;TOTAL;100
+Mujeres;De 18 a 24 años;Peso insuficiente (IMC<18,5 kg/m2);8.87
+Mujeres;De 18 a 24 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);69.52
+Mujeres;De 18 a 24 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);16.96
+Mujeres;De 18 a 24 años;Obesidad (IMC>=30 kg/m2);4.65
+Mujeres;De 25 a 34 años;TOTAL;100
+Mujeres;De 25 a 34 años;Peso insuficiente (IMC<18,5 kg/m2);6.4
+Mujeres;De 25 a 34 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);63.44
+Mujeres;De 25 a 34 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);19.9
+Mujeres;De 25 a 34 años;Obesidad (IMC>=30 kg/m2);10.25
+Mujeres;De 35 a 44 años;TOTAL;100
+Mujeres;De 35 a 44 años;Peso insuficiente (IMC<18,5 kg/m2);3.34
+Mujeres;De 35 a 44 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);57.79
+Mujeres;De 35 a 44 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);25.73
+Mujeres;De 35 a 44 años;Obesidad (IMC>=30 kg/m2);13.14
+Mujeres;De 45 a 54 años;TOTAL;100
+Mujeres;De 45 a 54 años;Peso insuficiente (IMC<18,5 kg/m2);1.58
+Mujeres;De 45 a 54 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);52.42
+Mujeres;De 45 a 54 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);30.74
+Mujeres;De 45 a 54 años;Obesidad (IMC>=30 kg/m2);15.26
+Mujeres;De 55 a 64 años;TOTAL;100
+Mujeres;De 55 a 64 años;Peso insuficiente (IMC<18,5 kg/m2);2.43
+Mujeres;De 55 a 64 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);42.21
+Mujeres;De 55 a 64 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);36.76
+Mujeres;De 55 a 64 años;Obesidad (IMC>=30 kg/m2);18.6
+Mujeres;De 65 a 74 años;TOTAL;100
+Mujeres;De 65 a 74 años;Peso insuficiente (IMC<18,5 kg/m2);0.98
+Mujeres;De 65 a 74 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);35.82
+Mujeres;De 65 a 74 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);41.34
+Mujeres;De 65 a 74 años;Obesidad (IMC>=30 kg/m2);21.86
+Mujeres;De 75 a 84 años;TOTAL;100
+Mujeres;De 75 a 84 años;Peso insuficiente (IMC<18,5 kg/m2);1.59
+Mujeres;De 75 a 84 años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);33.5
+Mujeres;De 75 a 84 años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);41.44
+Mujeres;De 75 a 84 años;Obesidad (IMC>=30 kg/m2);23.47
+Mujeres;De 85 y más años;TOTAL;100
+Mujeres;De 85 y más años;Peso insuficiente (IMC<18,5 kg/m2);3.34
+Mujeres;De 85 y más años;Normopeso (18,5 kg/m2 <=IMC<25 kg/m2);40.16
+Mujeres;De 85 y más años;Sobrepeso (25 kg/m2 <=IMC<30 kg/m2);36.05
+Mujeres;De 85 y más años;Obesidad (IMC>=30 kg/m2);20.45
