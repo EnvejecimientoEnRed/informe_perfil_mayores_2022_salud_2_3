@@ -26,14 +26,16 @@ export function initChart(iframe) {
         if (error) throw error;
 
         //Desarrollo del gráfico
+        let currentType = 'viz';
+
         //Nos quedamos con los datos de 2019 > Están todos los países representados
         let dataUE = data.filter(function(item) { if(item.is_EU == 'YES') { return item; }});
         
         let margin = {top: 10, right: 10, bottom: 80, left: 30},
-            width = document.getElementById('chart').clientWidth - margin.left - margin.right,
-            height = document.getElementById('chart').clientHeight - margin.top - margin.bottom;
+            width = document.getElementById('viz').clientWidth - margin.left - margin.right,
+            height = document.getElementById('viz').clientHeight - margin.top - margin.bottom;
 
-        let svg = d3.select("#chart")
+        let svg = d3.select("#viz")
             .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -116,10 +118,47 @@ export function initChart(iframe) {
                 .attr("height", function(d) { return height - y(d.value); });
         }
 
-        //////
-        ///// Resto - Chart
-        //////
-        init();
+        ///// CAMBIO
+        function setChart(type) {
+            if(type != currentType) {
+                if(type == 'viz') {
+                    //Cambiamos color botón
+                    document.getElementById('data_map').classList.remove('active');
+                    document.getElementById('data_viz').classList.add('active');
+                    //Cambiamos gráfico
+                    document.getElementById('map').classList.remove('active');
+                    document.getElementById('viz').classList.add('active');
+                } else {
+                    //Cambiamos color botón
+                    document.getElementById('data_map').classList.add('active');
+                    document.getElementById('data_viz').classList.remove('active');
+                    //Cambiamos gráfico
+                    document.getElementById('viz').classList.remove('active');
+                    document.getElementById('map').classList.add('active');
+                }
+            }            
+        }
+
+        /////
+        /////
+        // Resto - Chart
+        /////
+        /////
+        initViz();
+
+        document.getElementById('data_viz').addEventListener('click', function() {            
+            //Cambiamos gráfico
+            setChart('viz');
+            //Cambiamos valor actual
+            currentType = 'viz';
+        });
+
+        document.getElementById('data_map').addEventListener('click', function() {
+            //Cambiamos gráfico
+            setChart('map');
+            //Cambiamos valor actual
+            currentType = 'map';
+        });
 
         //Animación del gráfico
         document.getElementById('replay').addEventListener('click', function() {
