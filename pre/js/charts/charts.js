@@ -81,7 +81,7 @@ export function initChart(iframe) {
             .domain(tipos)
             .range([COLOR_PRIMARY_1, COLOR_COMP_1]);
 
-        function init() {
+        function initViz() {
             svg.append("g")
                 .selectAll("g")
                 .data(dataUE)
