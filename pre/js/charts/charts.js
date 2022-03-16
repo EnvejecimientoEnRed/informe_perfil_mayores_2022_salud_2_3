@@ -16,7 +16,7 @@ export function initChart(iframe) {
         //Desarrollo del gráfico
         //Nos quedamos con los datos de 2019 > Están todos los países representados
         let dataUE = data.filter(function(item) { if(item.is_EU == 'YES') { return item; }});
-        console.log(data2019);
+        console.log(dataUE);
 
         function init() {
 
