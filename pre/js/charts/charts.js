@@ -10,10 +10,21 @@ import { setFixedIframeUrl } from './chart_helpers';
 export function initChart(iframe) {
 
     //Lectura de datos
-    d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_1/main/data/edv_65_europa_2019.csv', function(error,data) {
+    d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_3/main/data/edv_65_europa_2019.csv', function(error,data) {
         if (error) throw error;
 
-        //Desarrollo del gráfico 
+        //Desarrollo del gráfico
+        //Nos quedamos con los datos de 2019 > Están todos los países representados
+        let dataUE = data.filter(function(item) { if(item.is_EU == 'YES') { return item; }});
+        console.log(data2019);
+
+        function init() {
+
+        }
+
+        function animateChart() {
+
+        }
 
         //////
         ///// Resto - Chart
