@@ -18,7 +18,7 @@
             <section class="content b-chart active" id="chartBlock">
                 <div class="b-title">
                     <h1 class="title">Figura 2.3. Comparativa de la esperanza de vida a los 65 años por edad en la Unión Europea, 2019</h1>
-                    <h2 class="subtitle">Gráfico 14/2022. En unidades (años)</h2>
+                    <h2 class="subtitle">Gráfico 14/2022. Ordenado de mayor a menor esperanza de vida para las mujeres</h2>
                 </div>
                 <div class="chart__logics">
                     <div class="chart__legend">
@@ -37,7 +37,10 @@
                     <button class="btn__chart" id="data_map">Mapa</button>
                 </div>
                 <div class="chart__double">
-                    <div class="chart__viz active" id="viz"></div>
+                    <div class="chart__viz active" id="viz">
+                        <p class="text__yaxis">Años de vida</p>                 
+                        <div class="chart--viz" id="chart"></div>
+                    </div>
                     <div class="chart__map" id="map">
                         <iframe src="https://carlosmunozdiazcsic.github.io/mapa_arcgis_salud_2_3/" width="100%" height="590px"></iframe>
                     </div>
@@ -45,10 +48,10 @@
                 <!-- Pie de gráfico -->
                 <div class="chart__footer">
                     <div class="chart__source">
-                        <p class="chart__source--data"><span>Fuente: </span><span id="data-source">Eurostat (demo_mlifetable; consulta en febrero de 2022)</span> y Laboratorio de Estadísticas Experimentales (CSIC)</p>
+                        <p class="chart__source--data"><span>Fuente: </span><span>Eurostat (demo_mlifetable; consulta en febrero de 2022)</span> y Laboratorio de Estadísticas Experimentales (CSIC)</p>
                         <p class="chart__source--copyright"><a class="link" href="https://creativecommons.org/licenses/by/4.0/deed.en_US" target="_blank">CC BY 4.0</a></p>
                     </div>
-                    <p class="chart__note"><span>Notas: </span><span id="data-note"></span></p>
+                    <p class="chart__note"><span>Notas: </span><span></span></p>
                 </div>
                 <div class="logo">
                     <img src="https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_salud_2_3/main/pre/iegd_logo.png" alt="Logo del Instituto de Economía, Geografía y Demografía (IEGD) del CSIC" width="100%" height="100%">
@@ -100,16 +103,12 @@
                 <li class="tab tab--rrss" data-target="b-rrss"><i class="fa fa--share fa-share-alt"></i></li>
             </ul>
         </nav>
-        <div class="chart__tooltip" id="tooltip">
-            <p class="chart__tooltip--title"></p>
-            <p class="chart__tooltip--text"></p>
-        </div>  
+        <div class="chart__tooltip" id="tooltip"></div>  
     </div>
     <!-- Uso de PYMJS para alturas dinámicas -->
     <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
     <script>
         const pymChild = new pym.Child();
-        let isChartActive = false;
     </script>
 </body>
 </html>
