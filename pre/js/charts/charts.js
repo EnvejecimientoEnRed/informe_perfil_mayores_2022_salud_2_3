@@ -28,7 +28,7 @@ export function initChart(iframe) {
             return d3.descending(+x.Mujeres, +y.Mujeres);
         });
         
-        let margin = {top: 5, right: 10, bottom: 80, left: 22.5},
+        let margin = {top: 5, right: 10, bottom: 20, left: 90},
             width = document.getElementById('chart').clientWidth - margin.left - margin.right,
             height = document.getElementById('chart').clientHeight - margin.top - margin.bottom;
 
@@ -42,22 +42,21 @@ export function initChart(iframe) {
         let paises = d3.map(dataUE, function(d){return(d.NAME_PAIS)}).keys();
         let tipos = ['Hombres', 'Mujeres'];
         
-        let x = d3.scaleBand()
-            .domain(paises)
-            .range([0, width])
-            .padding([0.35]);
+        let x = d3.scaleLinear()
+            .domain([0, 25])
+            .range([ 0, width]);
 
-        let xAxis = function(g) {
-            g.call(d3.axisBottom(x));
-            g.call(function(g){g.selectAll('.tick line').remove()});
-            g.call(function(g){g.select('.domain').remove()});
-            g.call(function(svg) {
-                svg.selectAll("text")	
-                .style("text-anchor", "end")
-                .attr("dx", "-.8em")
-                .attr("dy", ".15em")
-                .attr("transform", "rotate(-45)")
-                .style("font-weight", function(d) { if(d == 'España' || d == 'UE-27') { return '700'} else { return '400'; }})
+        let xAxis = function(svg) {
+            svg.call(d3.axisBottom(x).ticks(5));
+            svg.call(function(g){
+                g.selectAll('.tick line')
+                    .attr('class', function(d,i) {
+                        if (d == 0) {
+                            return 'line-special';
+                        }
+                    })
+                    .attr('y1', '0')
+                    .attr('y2', `-${height}`)
             });
         }
 
@@ -65,33 +64,27 @@ export function initChart(iframe) {
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis);
 
-        let y = d3.scaleLinear()
-            .domain([0, 25])
-            .range([ height, 0 ]);
+        let y = d3.scaleBand()
+            .range([0, height])
+            .domain(paises)
+            .padding(0.1)
+            .paddingInner(0.35)
 
         let yAxis = function(svg) {
-            svg.call(d3.axisLeft(y).ticks(5).tickFormat(function(d,i) { return numberWithCommas3(d); }));
-            svg.call(function(g) {
-                g.call(function(g){
-                    g.selectAll('.tick line')
-                        .attr('class', function(d,i) {
-                            if (d == 0) {
-                                return 'line-special';
-                            }
-                        })
-                        .attr('x1', '0%')
-                        .attr('x2', `${width}`)
-                });
+            svg.call(d3.axisLeft(y));
+            svg.call(function(g){g.selectAll('.tick line').remove()});
+            svg.call(function(g){g.selectAll('.domain').remove()});
+            svg.call(function(svg) {
+                svg.selectAll("text").style("font-weight", function(d) { if(d == 'España' || d == 'UE-27') { return '700'} else { return '400'; }})
             });
         }
 
         svg.append("g")
-            .attr("class", "yaxis")
             .call(yAxis);
 
-        let xSubgroup = d3.scaleBand()
+        let ySubgroup = d3.scaleBand()
             .domain(tipos)
-            .range([0, x.bandwidth()])
+            .range([0, y.bandwidth()])
             .padding([0]);
 
         let color = d3.scaleOrdinal()
@@ -99,12 +92,13 @@ export function initChart(iframe) {
             .range([COLOR_PRIMARY_1, COLOR_COMP_1]);
 
         function initViz() {
+            //Barras
             svg.append("g")
                 .selectAll("g")
                 .data(dataUE)
                 .enter()
                 .append("g")
-                .attr("transform", function(d) { return "translate(" + x(d.NAME_PAIS) + ",0)"; })
+                .attr("transform", function(d) { return "translate(0, " + y(d.NAME_PAIS) + ")"; })
                 .attr('class', function(d) {
                     return 'rect_' + d.NAME_PAIS;
                 })
@@ -115,11 +109,11 @@ export function initChart(iframe) {
                 .attr('class', function(d) {
                     return 'rect ' + d.key;
                 })
-                .attr("x", function(d) { return xSubgroup(d.key); })
-                .attr("width", xSubgroup.bandwidth())
                 .attr("fill", function(d) { return color(d.key); })
-                .attr("y", function(d) { return y(0); })                
-                .attr("height", function(d) { return height - y(0); })
+                .attr('x', x(0))
+                .attr('width', function(d) { return x(0); })
+                .attr('height', ySubgroup.bandwidth())
+                .attr('y', function(d) { return ySubgroup(d.key); })
                 .on('mouseover', function(d,i,e) {
                     //Comprobamos cuál es el sexo para la opacidad en sexo
                     let currentSex = this.classList[1];
@@ -153,8 +147,7 @@ export function initChart(iframe) {
                 })
                 .transition()
                 .duration(2000)
-                .attr("y", function(d) { return y(d.value); })                
-                .attr("height", function(d) { return height - y(d.value); });
+                .attr('width', function(d) { return x(d.value); });
             
             //Texto
             svg.append("g")
@@ -162,7 +155,7 @@ export function initChart(iframe) {
                 .data(dataUE)
                 .enter()
                 .append("g")
-                .attr("transform", function(d) { return "translate(" + x(d.NAME_PAIS) + ",0)"; })
+                .attr("transform", function(d) { return "translate(0," + y(d.NAME_PAIS) + ")"; })
                 .attr('class', function(d) {
                     return 'text_' + d.NAME_PAIS;
                 })
@@ -173,8 +166,8 @@ export function initChart(iframe) {
                 .attr('class', function(d) {
                     return 'text text_' + d.key;
                 })
-                .attr("x", function(d) { return xSubgroup(d.key) - 10; })
-                .attr("y", function(d) { return y(d.value) - 10; })
+                .attr("y", function(d) { return ySubgroup(d.key) + 2.5; })
+                .attr("x", function(d) { return x(d.value) + 7.5; })
                 .attr("dy", ".35em")
                 .style('display','none')
                 .text(function(d) { return numberWithCommas3(d.value); })
