@@ -80,12 +80,13 @@ export function initChart(iframe) {
         }
 
         svg.append("g")
+            .attr('class','yaxis')
             .call(yAxis);
 
         let ySubgroup = d3.scaleBand()
             .domain(tipos)
             .range([0, y.bandwidth()])
-            .padding([0]);
+            .padding(0);
 
         let color = d3.scaleOrdinal()
             .domain(tipos)
@@ -100,14 +101,14 @@ export function initChart(iframe) {
                 .append("g")
                 .attr("transform", function(d) { return "translate(0, " + y(d.NAME_PAIS) + ")"; })
                 .attr('class', function(d) {
-                    return 'rect_' + d.NAME_PAIS;
+                    return 'grupo grupo_' + d.NAME_PAIS;
                 })
                 .selectAll("rect")
                 .data(function(d) { return tipos.map(function(key) { return {key: key, value: d[key]}; }); })
                 .enter()
                 .append("rect")
                 .attr('class', function(d) {
-                    return 'rect ' + d.key;
+                    return 'rect rect_' + d.key;
                 })
                 .attr("fill", function(d) { return color(d.key); })
                 .attr('x', x(0))
@@ -115,22 +116,36 @@ export function initChart(iframe) {
                 .attr('height', ySubgroup.bandwidth())
                 .attr('y', function(d) { return ySubgroup(d.key); })
                 .on('mouseover', function(d,i,e) {
-                    //Comprobamos cuál es el sexo para la opacidad en sexo
-                    let currentSex = this.classList[1];
-
-                    let bars = svg.selectAll('.rect');  
+                    //Opacidad en barras
+                    let css = e[i].getAttribute('class').split(' ')[1];
+                    let bars = svg.selectAll('.rect');                    
+            
                     bars.each(function() {
                         this.style.opacity = '0.4';
-                        if(this.classList[1] == currentSex) {
+                        let split = this.getAttribute('class').split(" ")[1];
+                        if(split == `${css}`) {
                             this.style.opacity = '1';
                         }
                     });
 
-                    //Comprobamos cuál es el padre para poner el texto
-                    let currentCountry = this.parentNode.classList[0];
-                    let currentText = document.getElementsByClassName('text_'+currentCountry.split('_')[1])[0];
-                    let currentTextSex = currentText.getElementsByClassName('text_'+currentSex)[0];
-                    currentTextSex.style.display = 'block';
+                    //Tooltip > Recuperamos el año de referencia
+                    let currentCountry = this.parentNode.classList.value;
+                    let sex = d.key == 'Mujeres' ? 'mujeres' : 'hombres';
+
+                    let html = '';
+                    if(d.NAME_PAIS == 'UE-27') {
+                        html = '<p class="chart__tooltip--title">' + currentCountry.split('_')[1] + '</p>' + 
+                            '<p class="chart__tooltip--text">La esperanza de vida a los 65 años para <b>' + sex  + '</b> son <b>' + numberWithCommas3(parseFloat(d.value)) + ' años</b> en la Unión Europea</p>';
+                    } else {
+                        html = '<p class="chart__tooltip--title">' + currentCountry.split('_')[1] + '</p>' + 
+                            '<p class="chart__tooltip--text">La esperanza de vida a los 65 años para <b>' + sex  + '</b> son <b>' + numberWithCommas3(parseFloat(d.value)) + ' años</b> en este país</p>';
+                    }                    
+                    
+                    tooltip.html(html);
+
+                    //Tooltip
+                    positionTooltip(window.event, tooltip);
+                    getInTooltip(tooltip);                    
                 })  
                 .on('mouseout', function(d,i,e) {
                     //Quitamos los estilos de la línea
@@ -138,48 +153,17 @@ export function initChart(iframe) {
                     bars.each(function() {
                         this.style.opacity = '1';
                     });
-
-                    //Comprobamos cuál es el padre para quitar el texto
-                    let texts = svg.selectAll('.text');
-                    texts.each(function() {
-                        this.style.display = 'none';
-                    });
+                
+                    //Quitamos el tooltip
+                    getOutTooltip(tooltip);
                 })
                 .transition()
                 .duration(2000)
-                .attr('width', function(d) { return x(d.value); });
-            
-            //Texto
-            svg.append("g")
-                .selectAll("g")
-                .data(dataUE)
-                .enter()
-                .append("g")
-                .attr("transform", function(d) { return "translate(0," + y(d.NAME_PAIS) + ")"; })
-                .attr('class', function(d) {
-                    return 'text_' + d.NAME_PAIS;
-                })
-                .selectAll("rect")
-                .data(function(d) { return tipos.map(function(key) { return {key: key, value: d[key]}; }); })
-                .enter()
-                .append('text')
-                .attr('class', function(d) {
-                    return 'text text_' + d.key;
-                })
-                .attr("y", function(d) { return ySubgroup(d.key) + 2.5; })
-                .attr("x", function(d) { return x(d.value) + 7.5; })
-                .attr("dy", ".35em")
-                .style('display','none')
-                .text(function(d) { return numberWithCommas3(d.value); })
-                
-
-            svg.selectAll('texto')
-                .append()
-                
+                .attr('width', function(d) { return x(d.value); });              
         }
 
         function animateChart() {
-            svg.selectAll(".prueba")
+            svg.selectAll(".rect")
                 .attr("x", function(d) { return xSubgroup(d.key); })
                 .attr("width", xSubgroup.bandwidth())
                 .attr("fill", function(d) { return color(d.key); })
@@ -191,7 +175,7 @@ export function initChart(iframe) {
                 .attr("height", function(d) { return height - y(d.value); });
         }
 
-        ///// CAMBIO
+        ///// CAMBIO GRÁFICO-MAPA
         function setChart(type) {
             if(type != currentType) {
                 if(type == 'viz') {
@@ -210,6 +194,38 @@ export function initChart(iframe) {
                     document.getElementById('map').classList.add('active');
                 }
             }            
+        }
+
+        ///// CAMBIO ORDENACIÓN
+        document.getElementById('order-male').addEventListener('click', function(e) {
+            setViz('Hombres');
+        });
+
+        document.getElementById('order-female').addEventListener('click', function(e) {
+            setViz('Mujeres');
+        });
+
+        function setViz(tipo) {
+            // sort data
+            dataUE.sort(function(b, a) { return +a[tipo] - +b[tipo]; });
+
+            //Reordenación de eje Y y de columnas
+            paises = d3.map(dataUE, function(d){return(d.NAME_PAIS)}).keys();
+            y.domain(paises);
+            svg.select('.yaxis').call(yAxis);
+
+            svg.selectAll('.grupo')
+                .data(dataUE)
+                .attr("transform", function(d) { return "translate(0," + y(d.NAME_PAIS) + ")"; })
+                .attr('class', function(d) {
+                    return 'grupo grupo_' + d.NAME_PAIS;
+                })
+                .selectAll(".rect")
+                .data(function(d) { return tipos.map(function(key) { return {key: key, value: d[key]}; }); })
+                .attr("x", x(0) )
+                .attr("y", function(d) { return ySubgroup(d.key); })
+                .attr("height", ySubgroup.bandwidth())
+                .attr("width", function(d) { return x(d.value); });
         }
 
         /////
@@ -232,6 +248,8 @@ export function initChart(iframe) {
             //Cambiamos valor actual
             currentType = 'map';
         });
+
+        
 
         //Animación del gráfico
         document.getElementById('replay').addEventListener('click', function() {

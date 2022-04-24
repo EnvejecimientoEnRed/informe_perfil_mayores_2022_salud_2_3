@@ -18,12 +18,13 @@
             <section class="content b-chart active" id="chartBlock">
                 <div class="b-title">
                     <h1 class="title">Figura 2.3. Comparativa de la esperanza de vida a los 65 años por edad en la Unión Europea, 2019</h1>
-                    <h2 class="subtitle">Gráfico 14/2022. Ordenado de mayor a menor esperanza de vida para las mujeres</h2>
+                    <h2 class="subtitle">Gráfico 14/2022</h2>
                 </div>
-                <div class="chart__logics">
+                <p class="text__specification">Por defecto, en el gráfico los países están ordenados de más a menos años esperados de vida después de la jubilación para las mujeres. Puede modificar la ordenación por sexo clicando el nombre en la leyenda.</p>
+                <div class="chart__logics">                    
                     <div class="chart__legend">
-                        <span class="chart__legend--item primary_1">Hombres</span>
-                        <span class="chart__legend--item comp_1">Mujeres</span>
+                        <span class="chart__legend--item primary_1" id="order-male">Hombres</span>
+                        <span class="chart__legend--item comp_1" id="order-female">Mujeres</span>
                     </div>
                     <div class="chart__animate" id="replay">
                         <button class="btn btn__animate">
