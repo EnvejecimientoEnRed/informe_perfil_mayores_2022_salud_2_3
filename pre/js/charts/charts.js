@@ -28,7 +28,7 @@ export function initChart() {
             return d3.descending(+x.Mujeres, +y.Mujeres);
         });
         
-        let margin = {top: 5, right: 10, bottom: 20, left: 90},
+        let margin = {top: 12.5, right: 10, bottom: 25, left: 90},
             width = document.getElementById('chart').clientWidth - margin.left - margin.right,
             height = document.getElementById('chart').clientHeight - margin.top - margin.bottom;
 
@@ -135,10 +135,10 @@ export function initChart() {
                     let html = '';
                     if(d.NAME_PAIS == 'UE-27') {
                         html = '<p class="chart__tooltip--title">' + currentCountry.split('_')[1] + '</p>' + 
-                            '<p class="chart__tooltip--text">La esperanza de vida a los 65 años para <b>' + sex  + '</b> son <b>' + numberWithCommas3(parseFloat(d.value)) + ' años</b> en la Unión Europea</p>';
+                            '<p class="chart__tooltip--text">La esperanza de vida a los 65 años para <b>' + sex  + '</b> son <b>' + numberWithCommas3(parseFloat(d.value)) + '</b> años en la Unión Europea</p>';
                     } else {
                         html = '<p class="chart__tooltip--title">' + currentCountry.split('_')[1] + '</p>' + 
-                            '<p class="chart__tooltip--text">La esperanza de vida a los 65 años para <b>' + sex  + '</b> son <b>' + numberWithCommas3(parseFloat(d.value)) + ' años</b> en este país</p>';
+                            '<p class="chart__tooltip--text">La esperanza de vida a los 65 años para <b>' + sex  + '</b> son <b>' + numberWithCommas3(parseFloat(d.value)) + '</b> años en este país</p>';
                     }                    
                     
                     tooltip.html(html);
@@ -248,6 +248,10 @@ export function initChart() {
             setChart('viz');
             //Cambiamos valor actual
             currentType = 'viz';
+
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         });
 
         document.getElementById('data_map').addEventListener('click', function() {
@@ -255,6 +259,10 @@ export function initChart() {
             setChart('map');
             //Cambiamos valor actual
             currentType = 'map';
+
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         });        
 
         //Animación del gráfico
