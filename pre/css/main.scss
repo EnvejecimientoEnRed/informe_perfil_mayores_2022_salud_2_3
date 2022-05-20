@@ -256,14 +256,20 @@ button {
     }
 
     //Logo > Dentro del bloque b-chart
-    .logo {
-        position: absolute;
-        top: 0px;
-        right: 0px;
+    &__logos {
+        display: flex;
+        justify-content: space-around;
 
-        width: 95px;
-        height: 65px;
+        .logo_enr {    
+            width: 51.5px;
+            height: 53px;
+        }
+        .logo_csic {
+            width: 217px;
+            height: 53px;
+        }
     }
+    
 }
 
 .b-notes, .b-data, .b-iframes {
@@ -273,8 +279,8 @@ button {
 //Elementos genéricos en contenedores
 .b-title {
     width: 100%;
-    max-width: calc(100% - 100px);
-    min-height: 65px;
+    //max-width: calc(100% - 120px);
+    //min-height: 55px;
 
     .title {
         font-size: 1em;
