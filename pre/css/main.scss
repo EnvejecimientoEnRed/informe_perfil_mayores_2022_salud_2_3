@@ -253,23 +253,31 @@ button {
                 }
             }
         }
-    }
 
-    //Logo > Dentro del bloque b-chart
-    &__logos {
-        display: flex;
-        justify-content: space-around;
+        //Logo > Dentro del bloque b-chart
+        &__logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-        .logo_enr {    
-            width: 51.5px;
-            height: 53px;
+            margin-top: 8px;
+
+            .logo_csic {
+                width: 150px;
+                height: 36px;
+
+                margin-left: 16px;
+            }
+
+            .logo_enr {                
+                width: 51.5px;
+                height: 53px;
+
+                margin-right: 16px;
+            }
+            
         }
-        .logo_csic {
-            width: 217px;
-            height: 53px;
-        }
-    }
-    
+    }    
 }
 
 .b-notes, .b-data, .b-iframes {
@@ -279,8 +287,8 @@ button {
 //Elementos genéricos en contenedores
 .b-title {
     width: 100%;
-    //max-width: calc(100% - 120px);
-    //min-height: 55px;
+    max-width: calc(100% - 120px);
+    min-height: 55px;
 
     .title {
         font-size: 1em;
